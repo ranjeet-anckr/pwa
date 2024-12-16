@@ -6,9 +6,11 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
   registerType: "autoUpdate", 
   includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.png'],
   manifest: {
+    
     name: "Weather App",
     short_name: "WeatherApp",
     description: "An app that shows the weather forecast for your city.",
+    display: "fullscreen",
     icons: [
       {
         src: "./icon-192x192.png",
