@@ -3,12 +3,15 @@ import './App.css';
 
 const App: React.FC = () => {
   const [image, setImage] = useState<string | null>(null);
+  const [cameraFacing, setCameraFacing] = useState<'user' | 'environment'>('user');
 
   const handleOpenCamera = async () => {
     try {
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        // Access the camera
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        // Request the camera with the selected facing mode
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: cameraFacing },
+        });
 
         // Create a video element to preview the camera feed
         const videoElement = document.createElement('video');
@@ -50,6 +53,28 @@ const App: React.FC = () => {
   return (
     <div className="main">
       <div className="hello">Hello</div>
+      <div className="camera-controls">
+        <label>
+          <input
+            type="radio"
+            name="camera"
+            value="user"
+            checked={cameraFacing === 'user'}
+            onChange={() => setCameraFacing('user')}
+          />
+          Front Camera
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="camera"
+            value="environment"
+            checked={cameraFacing === 'environment'}
+            onChange={() => setCameraFacing('environment')}
+          />
+          Back Camera
+        </label>
+      </div>
       <button onClick={handleOpenCamera} className="camera-button">
         Open Camera
       </button>
