@@ -9,3 +9,41 @@
     color: white;
   }
 }
+
+
+
+.main {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.hello {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.camera-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.camera-button:hover {
+  background-color: #0056b3;
+}
+
+.preview {
+  margin-top: 20px;
+}
+
+.captured-image {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
